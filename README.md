@@ -11,11 +11,11 @@ Workarounds: I think this may be due to gmloader killing the application really 
 
 -Saving Issues- Settings file. Settings.vs not saving in the main game directory, so no new settings are properly set on reload.
      
-Workarounds: Added a "default" settings.vs to the main game dir so one is created initilly, the added a call to the settings save script when the "resume game" script runs. Basically, settings will now save if you enter the menu, change something, leave the menu via "resume game." IDK why this is happening but I think it's a gml sandbox/directory issue.
+Workarounds: Added a "default" settings.vs to the main game dir so one is created initially, then added a call to the settings save script when the "resume game" script runs. Basically, settings will now save if you enter the menu, change something, leave the menu via "resume game." IDK why this is happening but I think it's a gml sandbox/directory issue.
 
 -Start-up Time. Takes a solid 30-60 sec to get in-game; this is because of the way the game loads data for its text on startup (it manually parses a .csv file for all script data and loads that script into a "ds_grid" (gml matrix?))
      
-Possible workaround would be to serialize that data and buffer it straight in to a variable without all the parsing logic; this would lock the port to a certasin version of the game.
+Possible workaround would be to serialize that data and buffer it straight in to a variable without all the parsing logic; this would lock the port to a certain version of the game.
 
 -Controls not updating properly (probably an issue with my configuration of the .gptk at this point).
 
