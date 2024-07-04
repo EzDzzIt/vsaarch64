@@ -1,6 +1,8 @@
 # vsaarch64
 experimental void stranger port to Linux handhelds via PortMaster
 
+using utmt bleeding edge and gmloader-next
+
 *Open Issues*
 
 -Saving Issues- Game Key Events. Save.vs (the main save file) is not always updating for key events.
