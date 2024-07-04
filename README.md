@@ -17,9 +17,9 @@ Workarounds: Added a "default" settings.vs to the main game dir so one is create
 -*Start-up Time*. Takes a solid 30-60 sec to get in-game; this is because of the way the game loads data for its text on startup (it manually parses a .csv file for all script data and loads that script into a "ds_grid" (gml matrix?))
      
 Possible workaround would be to serialize that data and buffer it straight in to a variable without all the parsing logic; this would lock the port to a certain version of the game. Adding some debug code so I can measure exactly how long the script loading process takes. 
-*Update- uisng the ds_grid_write and ds_grid_read functions, we can turn all data into one large string which can then be stored as a variable directly. 62 seconds to parse the csv, less than one second to enter the variable. however, if there are changes to the CSV in the future, those would need to be captured. Some simple logic should be able to take in the csv and create an output, which if is found in the future, goes straight to a string? will have to work on that one.
+*Update- using the ds_grid_write and ds_grid_read functions, we can turn all data into one large string which can then be stored as a variable directly. 62 seconds to parse the csv, less than one second to enter the variable. however, if there are changes to the CSV in the future, those would need to be captured. Some simple logic should be able to take in the csv and create an output, which if is found in the future, goes straight to a string? will have to work on that one.
 
--*Controls* not updating properly (probably an issue with my configuration of the .gptk at this point). Existing game debug messages show that controller inputs and keyboard inputs are being detected simulataneously. 
+-*Controls* not updating properly (probably an issue with my configuration of the .gptk at this point). Existing game debug messages show that controller inputs and keyboard inputs are being detected simultaneously. 
 
 -*Optimization*. On MuOS, currently using 50% cpu load and 90% of RAM during gameplay. Goal would be to cut those both in half. RAM usage could be lowered through audio compression. CPU load decreases by 10% if you kill the frontend first. Killing the os frontend does help, could include it in thr script as long as you could restart the frontend on quit.
 
