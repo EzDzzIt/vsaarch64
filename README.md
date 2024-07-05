@@ -4,26 +4,25 @@ experimental void stranger port to Linux handhelds via PortMaster (testing on rg
 using utmt bleeding edge and gmloader-next
 using v1.1.1 of the steam version of the game
 
-*Open Issues*
+*Issues Encountered with Vanilla Port*
 
--*Saving Issues*- Save After Key Events. Save.vs (the main save file) is not always updating for key events. This issue is the top priority so that all paths and endings can be unlocked. 
-     
-Workarounds: I think this may be due to gmloader killing the application really quickly before new save data can be written. Initial testing for my issue shows that the correct player flags get set, but the game exits through a different script. I forced that other script to call the main savegame script before it exits, and upon reload, it looks like data saves properly. The savegame script should hopefully check to make sure saving is allowed... (possibly this breaks something in the future).
+-Problems saving data after certain key events (initially seen with rest area 1).
+-Settings file not saving after an option is changed. 
+-Long start-up time on boot (1.5min even without unpacking/repacking assets)
+-Controls not updating as expected. 
+-High CPU/RAM usage. 
+-Splash Screen not displaying on Boot. 
 
--*Saving Issues*- Settings file. Settings.vs not saving in the main game directory, so no new settings are properly set on reload.
-     
-Workarounds: Added a "default" settings.vs to the main game dir so one is created initially, then added a call to the settings save script when the "resume game" script runs. Basically, settings will now save if you enter the menu, change something, leave the menu via "resume game." IDK why this is happening but I think it's a gml sandbox/directory issue.
+*Key Changes in Patched Version*
 
--*Start-up Time*. Takes a solid 30-60 sec to get in-game; this is because of the way the game loads data for its text on startup (it manually parses a .csv file for all script data and loads that script into a "ds_grid" (gml matrix?))
-     
-Possible workaround would be to serialize that data and buffer it straight in to a variable without all the parsing logic; this would lock the port to a certain version of the game. Adding some debug code so I can measure exactly how long the script loading process takes. 
+-Call the "savegame" script after key events to trigger new save data properly (this fixes rest area 1, but more issues may arise). 
+-Attempt to save game settings file whenever the "resume game" script runs (to save settings, enter the menu, make changes, and make sure to select "Resume" tp go nack into the game. This should force the settings file to be saved)..
+-On first boot, game script data is parsed from a .csv file. A separate .ini file is then saved in the game directory which can be called for much faster startup on subsequent boots (60s -> 1s). This file needs to be removed if the .csv file is updated. 
 
-*Update- using the ds_grid_write and ds_grid_read functions, we can turn all data into one large string which can then be stored as a variable directly. 62 seconds to parse the csv, less than one second to enter the variable. However, if there are changes to the CSV in the future, those would need to be captured. Some simple logic should be able to take in the csv and create an output, which if is found in the future, goes straight to a string? will have to work on that one.
+*ToDo*
 
--*Controls* not updating properly (probably an issue with my configuration of the .gptk at this point). Existing game debug messages show that controller inputs and keyboard inputs are being detected simultaneously; these messages only appear while navigating menu screens. 
-
--*Splash Screen*. Splash not showing during intial game booting process; will try packaging it with the .apk wrapper file. 
-
--*Optimization*. On MuOS, currently using 50% cpu load and 90% of RAM during gameplay. Goal would be to cut those both in half. RAM usage could be lowered through audio compression. CPU load decreases by 10% if you kill the frontend first. Killing the os frontend does help, could include it in thr script as long as you could restart the frontend on quit.
-
-Performance seems fine on the H700 device with framerates of 60+ consistently.
+-Test zipping splash screen into .apk
+-Compress audio data to lower ram usage
+-Play through each ending to ensure they are all attainable
+-Test on other devices
+-Troubleshoot control scheme
