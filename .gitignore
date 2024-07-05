@@ -1,0 +1,10 @@
+gmloader
+*.win
+*.dat
+*.csv
+*.vs
+*.vslocal
+*.exe
+*.dll
+*.wav
+*.ogg
