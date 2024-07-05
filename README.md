@@ -7,10 +7,15 @@ using v1.1.1 of the steam version of the game
 *Issues Encountered with Vanilla Port*
 
 -Problems saving data after certain key events (initially seen with rest area 1).
+
 -Settings file not saving after an option is changed. 
+
 -Long start-up time on boot (1.5min even without unpacking/repacking assets)
+
 -Controls not updating as expected. 
+
 -High CPU/RAM usage. 
+
 -Splash Screen not displaying on Boot. 
 
 *Key Changes in Patched Version*
@@ -24,7 +29,11 @@ using v1.1.1 of the steam version of the game
 *ToDo*
 
 -Test zipping splash screen into .apk
+
 -Compress audio data to lower ram usage
+
 -Play through each ending to ensure they are all attainable
+
 -Test on other devices
+
 -Troubleshoot control scheme
