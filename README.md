@@ -4,19 +4,19 @@ experimental void stranger port to Linux handhelds via PortMaster (testing on rg
 using utmt bleeding edge and gmloader-next
 using v1.1.1 of the steam version of the game
 
-#################################################################
-*Instructions for Testing*
-#################################################################
+#################################################################<br />
+*Instructions for Testing*<br />
+#################################################################<br />
 
--Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/
--Place game .png, .dat, .csv, and .win files in the "gamedata" folder. 
+-Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/<br />
+-Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
 -Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file "gmloader." Drop this file in the main port directory. 
 
-#################################################################
-*Known Issues*
-##################################################################
+#################################################################<br />
+*Known Issues*<br />
+##################################################################<br />
 
--Problems saving data after certain key events (initially seen with rest area 1).
+-Problems saving data after certain key events (initially seen with rest area 1).<br />
 -Settings file not saving after an option is changed. 
 -Long start-up time on boot (1.5min even without unpacking/repacking assets)
 ---Controls not updating as expected.--
