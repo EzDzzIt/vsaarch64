@@ -8,7 +8,8 @@ using v1.1.1 of the steam version of the game
 
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/<br />
 -Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
--Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file "gmloader." Drop this file in the main port directory. 
+-Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file "gmloader." Drop this file in the main port directory. <br />
+-Apply xdelta patch to data.win file <br />
 
 ## *Known Issues*
 
