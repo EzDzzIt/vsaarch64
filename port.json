@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "VoidStranger.zip",
+  "items": [
+    "VoidStranger.sh",
+    "voidstranger/"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Void Stranger",
+    "porter": [
+      "nate_____"
+    ],
+    "desc": "A sokoban game from System Erasure.",
+    "desc_md": null,
+    "inst": "See GitHub page for now.",
+    "inst_md": null,
+    "genres": [
+      "Puzzle"
+    ],
+    "image": null,
+    "rtr": false,
+    "exp": true,
+    "runtime": "gmloader-next",
+    "reqs": [
+      "hires"
+    ],
+    "arch": [
+      "aarch64"
+    ]
+  }
+}
