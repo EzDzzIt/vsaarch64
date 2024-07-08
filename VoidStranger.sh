@@ -39,7 +39,7 @@ else
   source "${controlfolder}/libgl_default.txt"
 fi
 
-# Patch the data.win file
+# Check for/patch the data.win file
 if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
 elif [ -f "gamedata/data.win" ]; then
@@ -50,7 +50,8 @@ fi
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
-  #script and lib folder need to be in GAMEDIR
+  
+  #move some stuff into the .apk
 
   echo "Zipping game files..."
 
