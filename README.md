@@ -6,6 +6,8 @@ using v1.1.1 of the steam version of the game
 
 ## *Instructions for Testing*
 
+*Not technically ready for testing yet*
+
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/<br />
 
 -Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
@@ -31,6 +33,7 @@ using v1.1.1 of the steam version of the game
 ## *Patch Notes*
 
 -Fixed controls not updating as expected.<br />
+
 -Call the "savegame" script after key events to trigger new save data properly (this fixes rest area 1, but more issues may arise). <br />
 
 -Attempt to save game settings file whenever the "resume game" script runs (to save settings, enter the menu, make changes, and make sure to select "Resume" to go back into the game. This should force the settings file to be saved).<br />
