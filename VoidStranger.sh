@@ -45,33 +45,33 @@ if [ -f "gamedata/vs-patched.win" ]; then
 elif [ -f "gamedata/data.win" ]; then
   echo "Patching data.win"
   cd /$GAMEDIR/gamedata/
-  $SUDO $controlfolder/xdelta3 -d -s "data.win" "vs.xdelta" "vs-patched.win"
+  $SUDO $GAMEDIR/utils/xdelta3 -d -s "data.win" "vs.xdelta" "vs-patched.win"
 fi
 
-# Check if there is an empty file called PACKANDPATCH in the dir
-if [ ! -f PACKANDPATCH ]; then
+# Check if there is an empty file called "loadedapk" in the dir
+if [ ! -f loadedapk ]; then
   #script and lib folder need to be in GAMEDIR
 
   echo "Zipping game files..."
 
-  $SUDO mkdir -p voidstrangerpatch/assets/
+  $SUDO mkdir -p vstemp/assets/
 
-  $SUDO cp gamedata/"audiogroup1.dat" voidstrangerpatch/assets/
-  $SUDO cp gamedata/"audiogroup2.dat" voidstrangerpatch/assets/
-  #$SUDO cp gamedata/"splash.png" voidstrangerpatch/assets/
+  $SUDO cp gamedata/"audiogroup1.dat" vstemp/assets/
+  $SUDO cp gamedata/"audiogroup2.dat" vstemp/assets/
+  $SUDO cp gamedata/"splash.png" vstemp/assets/
   $SUDO cp gamedata/"voidstranger_data.csv" $GAMEDIR
 
-  $SUDO utils/unzip "game.apk" -d voidstrangerpatch/ 
+  $SUDO utils/unzip "game.apk" -d vstemp/ 
   LD_LIBRARY_PATH=$(pwd)/utils/lib 
 
   # Create final archive
-  cd voidstrangerpatch
+  cd vstemp
   $SUDO ../utils/zip -r -0 ../voidstranger.zip *
   cd ..
   mv voidstranger.zip game.apk 
 
-  $SUDO rm -r voidstrangerpatch
-  touch PACKANDPATCH
+  $SUDO rm -r vstemp
+  touch loadedapk
   echo "Files loaded in to .apk"
 
 fi
@@ -79,9 +79,9 @@ fi
 export LD_LIBRARY_PATH=export LD_LIBRARY_PATH="/usr/lib32:$GAMEDIR/libs:$GAMEDIR/utils/libs"
 
 # Check for file existence before trying to manipulate them:
-[ -f "./gamedata/data.win" ] && cp gamedata/data.win $GAMEDIR/game.droid
-[ -f "./gamedata/game.win" ] && cp gamedata/game.win $GAMEDIR/game.droid
-[ -f "./gamedata/game.unx" ] && cp gamedata/game.unx $GAMEDIR/game.droid
+[ -f "./gamedata/vs-patched.win" ] && cp gamedata/vs-patched.win $GAMEDIR/game.droid
+#[ -f "./gamedata/game.win" ] && cp gamedata/game.win $GAMEDIR/game.droid
+#[ -f "./gamedata/game.unx" ] && cp gamedata/game.unx $GAMEDIR/game.droid
 
 # Make sure uinput is accessible so we can make use of the gptokeyb controls
 $ESUDO chmod 666 /dev/uinput
