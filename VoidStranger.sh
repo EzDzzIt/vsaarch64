@@ -39,6 +39,15 @@ else
   source "${controlfolder}/libgl_default.txt"
 fi
 
+# Patch the data.win file
+if [ -f "gamedata/vs-patched.win" ]; then
+  echo "Found patched data file."
+elif [ -f "gamedata/data.win" ]; then
+  echo "Patching data.win"
+  cd /$GAMEDIR/gamedata/
+  $SUDO $controlfolder/xdelta3 -d -s "data.win" "vs.xdelta" "vs-patched.win"
+fi
+
 # Check if there is an empty file called PACKANDPATCH in the dir
 if [ ! -f PACKANDPATCH ]; then
   #script and lib folder need to be in GAMEDIR
