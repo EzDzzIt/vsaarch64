@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 3,
   "name": "VoidStranger.zip",
   "items": [
     "VoidStranger.sh",
@@ -11,20 +11,18 @@
     "porter": [
       "nate_____"
     ],
-    "desc": "A sokoban game from System Erasure.",
+    "desc": "From Steam: \n\n\"Void Stranger is a 2D sokoban-style puzzle game where every step counts.\n\nDescend into the forgotten labyrinth teeming with fiendish foes and traps that defy reason. A swift defeat lurks at every corner for those who neither study their surroundings nor think their moves through with care.\nTrust you wits and slowly, surely, you will conquer the mysteries before you.\n\nYou do remember why you are here, right?\nOr have you lost something?\nSomething very important to you.\"",
     "desc_md": null,
-    "inst": "See GitHub page for now.",
+    "inst": "Not technically ready for testing yet\n\n-Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/\n\n-Place game .png, .dat, .csv, and .win files in the \"gamedata\" folder.\n\n-Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file \"gmloader.\" Drop this file in the main port directory.\n\n-Apply xdelta patch to data.win file (this will be done automatically in updated script)",
     "inst_md": null,
     "genres": [
-      "Puzzle"
+      "puzzle"
     ],
     "image": null,
     "rtr": false,
     "exp": true,
-    "runtime": "gmloader-next",
-    "reqs": [
-      "hires"
-    ],
+    "runtime": null,
+    "reqs": [],
     "arch": [
       "aarch64"
     ]
