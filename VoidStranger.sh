@@ -59,8 +59,8 @@ if [ ! -f loadedapk ]; then
 
   $SUDO cp gamedata/"audiogroup1.dat" vstemp/assets/
   $SUDO cp gamedata/"audiogroup2.dat" vstemp/assets/
-  $SUDO cp gamedata/"splash.png" vstemp/assets/
-  $SUDO cp gamedata/"voidstranger_data.csv" $GAMEDIR
+  $SUDO cp -f gamedata/"splash.png" vstemp/assets/
+  $SUDO cp -f gamedata/"voidstranger_data.csv" $GAMEDIR
 
   $SUDO utils/unzip "game.apk" -d vstemp/ 
   LD_LIBRARY_PATH=$(pwd)/utils/lib 

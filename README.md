@@ -1,8 +1,9 @@
 # vsaarch64
-experimental void stranger port to Linux handhelds via PortMaster (testing on rg35xxh)
+experimental void stranger port to Linux handhelds via PortMaster (testing on rg35xxh)  
+https://portmaster.games/faq.html  
 
-using utmt bleeding edge and gmloader-next
-using v1.1.1 of the steam version of the game
+using utmt bleeding edge and gmloader-next  
+using v1.1.1 of the steam version of the game  
 
 ## *Instructions for Testing*
 
@@ -14,21 +15,21 @@ using v1.1.1 of the steam version of the game
 
 -Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file "gmloader." Drop this file in the main port directory. <br />
 
--Apply xdelta patch to data.win file <br />
+-Apply xdelta patch to data.win file (this will be done automatically in updated script) <br />
 
 ## *Known Issues*
 
--Problems saving data after certain key events (initially seen with rest area 1).<br />
+-(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
 
--Settings file not saving after an option is changed. <br />
+-(Workaround added) Settings file not saving after an option is changed. <br />
 
--Long start-up time on boot (1.5min even without unpacking/repacking assets)<br />
+-(Fixed) Long start-up time on boot (1.5min even without unpacking/repacking assets)<br />
 
 -High CPU/RAM usage. <br />
 
 -Splash Screen not displaying on boot. <br />
 
--Font overlap during jrpg battle scene <br />
+-(Fixed) Font overlap during jrpg battle scene <br />
 
 ## *Patch Notes*
 
@@ -40,16 +41,18 @@ using v1.1.1 of the steam version of the game
 
 -On first boot, game script data is parsed from a .csv file. A separate .ini file is then saved in the game directory which can be called for much faster startup on subsequent boots (60s -> 1s). This file needs to be removed if the .csv file is updated. <br />
 
--"buffer" variable for text spacing increased in battle objs <br />
+-"var buffer" variable for text spacing increased in battle objs <br />
 
 ## *ToDo*
-
--Test zipping splash screen into .apk <br />
 
 -Compress audio data to lower ram usage <br />
 
 -Play through each ending to ensure they are all attainable <br />
 
+-Adjust main script to include auto-patching of base game data using xdelta3 <br />
+
 -Test on other devices <br />
 
 -Add save backup script for testing paths <br />
+
+-Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next <br />
