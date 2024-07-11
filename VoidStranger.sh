@@ -39,17 +39,14 @@ else
   source "${controlfolder}/libgl_default.txt"
 fi
 
-cd $GAMEDIR/gamedata/
-
 # Check for/patch the data.win file
-if [ -f "vs-patched.win" ]; then
+if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
-elif [ -f "data.win" ]; then
+elif [ -f "gamedata/data.win" ]; then
   echo "Patching data.win"
-  $SUDO $GAMEDIR/utils/xdelta3 -d -s "data.win" "vs.vcdiff" "vs-patched.win"
+  $SUDO $GAMEDIR/utils/xdelta3 -d -s "gamedata/data.win" "gamedata/vs.vcdiff" "gamedata/vs-patched.win"
 fi
 
-cd $GAMEDIR
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
@@ -62,8 +59,8 @@ if [ ! -f loadedapk ]; then
 
   $SUDO cp gamedata/"audiogroup1.dat" vstemp/assets/
   $SUDO cp gamedata/"audiogroup2.dat" vstemp/assets/
-  $SUDO yes | cp -rf gamedata/"splash.png" vstemp/assets/
-  $SUDO cp -f gamedata/"voidstranger_data.csv" $GAMEDIR
+  #$SUDO yes | cp -rf gamedata/"splash.png" vstemp/assets/
+  #$SUDO cp -f gamedata/"voidstranger_data.csv" $GAMEDIR
 
   $SUDO utils/unzip "game.apk" -d vstemp/ 
   LD_LIBRARY_PATH=$(pwd)/utils/lib 
@@ -89,8 +86,6 @@ export LD_LIBRARY_PATH=export LD_LIBRARY_PATH="/usr/lib32:$GAMEDIR/libs:$GAMEDIR
 
 # Make sure uinput is accessible so we can make use of the gptokeyb controls
 $ESUDO chmod 666 /dev/uinput
-
-cd $GAMEDIR
 
 $GPTOKEYB "gmloader" -c ./voidstranger.gptk &
 
