@@ -16,3 +16,14 @@ b = z
 x = z
 y = z
 l3 = z
+
+l1 = f2
+l2 = f3
+r1 = mouse_right
+r2 = f5
+
+right_analog_up = mouse_movement_up
+right_analog_down = mouse_movement_down
+right_analog_left = mouse_movement_left
+right_analog_right = mouse_movement_right
+mouse_scale = 4500
