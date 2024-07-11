@@ -3,11 +3,11 @@ experimental void stranger port to Linux handhelds via PortMaster (testing on rg
 https://portmaster.games/faq.html  
 
 using utmt bleeding edge and gmloader-next  
-using v1.1.1 of the steam version of the game  
+using v1.1.1 of the Steam version of the game  
 
 ## *Instructions for Testing*
 
-*Not technically ready for testing yet*
+*Not technically ready for distribution yet*
 
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/<br />
 
@@ -15,7 +15,7 @@ using v1.1.1 of the steam version of the game
 
 -Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file "gmloader." Drop this file in the main port directory. <br />
 
--Apply xdelta patch to data.win file (this will be done automatically in updated script) <br />
+-On first run, the game will take a couple of minutes to load. It is running through patching the data.win file via xdelta, zipping audio files and other files into the .apk, and parsing the .csv data file. Subsequent starts should go faster. <br />
 
 ## *Known Issues*
 
