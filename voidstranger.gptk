@@ -6,25 +6,13 @@ down = down
 left = left
 right = right
 
-a = z
-b = z
-x = z
-y = z
-l3 = z ## l3 = z to effectively play this game with only your left hand if you wanted lmao
-
 left_analog_up = up
 left_analog_down = down
 left_analog_left = left
 left_analog_right = right
 
-r3 = mouse_right ## to enable mouse cursor
-right_analog_up = mouse_movement_up
-right_analog_down = mouse_movement_down
-right_analog_left = mouse_movement_left
-right_analog_right = mouse_movement_right
-mouse_scale = 4200 ##change this value to change cursor mode speed
-
-l2 = f1 ## help display
-l1 = f2 ## timer
-r1 = f3 ## step counter
-r2 = f5 ## flicker
+a = z
+b = z
+x = z
+y = z
+l3 = z

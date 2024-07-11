@@ -24,6 +24,8 @@ $ESUDO chmod 666 /dev/tty0
 
 GAMEDIR="/$directory/ports/voidstranger"
 
+cd $GAMEDIR
+
 export GMLOADER_DEPTH_DISABLE=1
 export GMLOADER_SAVEDIR="$GAMEDIR"
 export GMLOADER_PLATFORM="os_linux"
@@ -31,7 +33,6 @@ export GMLOADER_PLATFORM="os_linux"
 # We log the execution of the script into log.txt
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
-cd $GAMEDIR
 
 if [ -f "${controlfolder}/libgl_${CFWNAME}.txt" ]; then 
   source "${controlfolder}/libgl_${CFW_NAME}.txt"
@@ -39,19 +40,18 @@ else
   source "${controlfolder}/libgl_default.txt"
 fi
 
-# Check for/patch the data.win file
+# Patch the data.win file
 if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
 elif [ -f "gamedata/data.win" ]; then
   echo "Patching data.win"
-  $SUDO $GAMEDIR/utils/xdelta3 -d -s "gamedata/data.win" "gamedata/vs.vcdiff" "gamedata/vs-patched.win"
+  cd /$GAMEDIR/gamedata/
+  $SUDO $GAMEDIR/utils/xdelta3 -d -s "data.win" "vs.vcdiff" "vs-patched.win"
 fi
-
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
-  
-  #move some stuff into the .apk
+  #script and lib folder need to be in GAMEDIR
 
   echo "Zipping game files..."
 
@@ -59,8 +59,8 @@ if [ ! -f loadedapk ]; then
 
   $SUDO cp gamedata/"audiogroup1.dat" vstemp/assets/
   $SUDO cp gamedata/"audiogroup2.dat" vstemp/assets/
-  #$SUDO yes | cp -rf gamedata/"splash.png" vstemp/assets/
-  #$SUDO cp -f gamedata/"voidstranger_data.csv" $GAMEDIR
+  #$SUDO cp gamedata/"splash.png" vstemp/assets/
+  $SUDO cp gamedata/"voidstranger_data.csv" $GAMEDIR
 
   $SUDO utils/unzip "game.apk" -d vstemp/ 
   LD_LIBRARY_PATH=$(pwd)/utils/lib 
