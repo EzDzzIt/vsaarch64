@@ -15,7 +15,7 @@ fi
 source $controlfolder/control.txt
 source $controlfolder/device_info.txt
 export PORT_32BIT="Y"
-export LD_LIBRARY_PATH="/usr/lib32:$GAMEDIR/libs"
+export LD_LIBRARY_PATH=export LD_LIBRARY_PATH="/usr/lib32:$GAMEDIR/libs:$GAMEDIR/utils/libs"
 
 get_controls
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
@@ -30,40 +30,59 @@ export GMLOADER_DEPTH_DISABLE=1
 export GMLOADER_SAVEDIR="$GAMEDIR"
 export GMLOADER_PLATFORM="os_linux"
 
-# log the execution of the script into log.txt
+# We log the execution of the script into log.txt
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
+
+
+if [ -f "${controlfolder}/libgl_${CFWNAME}.txt" ]; then 
+  source "${controlfolder}/libgl_${CFW_NAME}.txt"
+else
+  source "${controlfolder}/libgl_default.txt"
+fi
 
 # Patch the data.win file
 if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
 elif [ -f "gamedata/data.win" ]; then
   echo "Patching data.win"
-  $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.vcdiff" gamedata/"vs-patched.win"
+  cd /$GAMEDIR/gamedata/
+  $SUDO $GAMEDIR/utils/xdelta3 -d -s "data.win" "vs.vcdiff" "vs-patched.win"
 fi
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
+  #script and lib folder need to be in GAMEDIR
 
   echo "Zipping game files..."
 
-  $SUDO mkdir -p ./assets/
+  $SUDO mkdir -p vstemp/assets/
 
-  $SUDO cp gamedata/"audiogroup1.dat" ./assets/
-  $SUDO cp gamedata/"audiogroup2.dat" ./assets/
-  $SUDO cp gamedata/"splash.png" ./assets/
+  $SUDO cp gamedata/"audiogroup1.dat" vstemp/assets/
+  $SUDO cp gamedata/"audiogroup2.dat" vstemp/assets/
+  #$SUDO cp gamedata/"splash.png" vstemp/assets/
   $SUDO cp gamedata/"voidstranger_data.csv" $GAMEDIR
 
-  $ESUDO zip -r -0 $GAMEDIR/game.apk ./assets/
+  $SUDO utils/unzip "game.apk" -d vstemp/ 
+  LD_LIBRARY_PATH=$(pwd)/utils/lib 
 
-  $SUDO rm -r ./assets/
+  # Create final archive
+  cd vstemp
+  $SUDO ../utils/zip -r -0 ../voidstranger.zip *
+  cd ..
+  mv voidstranger.zip game.apk 
+
+  $SUDO rm -r vstemp
   touch loadedapk
-
   echo "Files loaded in to .apk"
 
 fi
 
+export LD_LIBRARY_PATH=export LD_LIBRARY_PATH="/usr/lib32:$GAMEDIR/libs:$GAMEDIR/utils/libs"
+
 # Check for file existence before trying to manipulate them:
 [ -f "./gamedata/vs-patched.win" ] && cp gamedata/vs-patched.win $GAMEDIR/game.droid
+#[ -f "./gamedata/game.win" ] && cp gamedata/game.win $GAMEDIR/game.droid
+#[ -f "./gamedata/game.unx" ] && cp gamedata/game.unx $GAMEDIR/game.droid
 
 # Make sure uinput is accessible so we can make use of the gptokeyb controls
 $ESUDO chmod 666 /dev/uinput
