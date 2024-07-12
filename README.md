@@ -55,6 +55,8 @@ using v1.1.1 of the Steam version of the game
 
 -Add save backup script for testing paths <br />
 
+-Add additional palette options into menu directly. Not a necessity but would be a fun addition. <br />
+
 -Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next <br />
 
 ## *Built With*
