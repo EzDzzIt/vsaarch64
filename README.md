@@ -56,3 +56,9 @@ using v1.1.1 of the Steam version of the game
 -Add save backup script for testing paths <br />
 
 -Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next <br />
+
+## *Built With*
+
+-https://github.com/jmacd/xdelta/blob/release3_1_apl/xdelta3/LICENSE <br />
+
+-https://github.com/JohnnyonFlame/gmloader-next/blob/master/LICENSE.md <br />
