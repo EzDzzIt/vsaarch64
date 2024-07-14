@@ -38,8 +38,10 @@ if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
 elif [ -f "gamedata/data.win" ]; then
   echo "Patching data.win"
-  $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.vcdiff" gamedata/"vs-patched.win"
+  $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
 fi
+
+# 2do: Check CRC here
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
