@@ -59,6 +59,12 @@ using v1.1.1 of the Steam version of the game
 
 -Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next <br />
 
+## *Credits*
+
+-Custom palettes in the palette-swapped patch:  
+    "FAMILIORANGE" by gooeyphantasm  
+    "GB GREEN" by gooeyphantasm  
+
 ## *Built With*
 
 -https://github.com/jmacd/xdelta/blob/release3_1_apl/xdelta3/LICENSE <br />
