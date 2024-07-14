@@ -2,7 +2,7 @@
 experimental void stranger port to Linux handhelds via PortMaster (testing on rg35xxh)  
 https://portmaster.games/faq.html  
 
-using utmt bleeding edge and gmloader-next  
+using utmtCE and gmloader-next  
 using v1.1.1 of the Steam version of the game  
 
 ## *Instructions for Testing*
@@ -21,6 +21,12 @@ using v1.1.1 of the Steam version of the game
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
 
+-Fruit refusal reults in endless loop <br />
+
+-Music looping incorrectly <br />
+
+-(Workaround added) Locust count for void court not updating properly.<br />
+
 -(Workaround added) Settings file not saving after an option is changed. <br />
 
 -(Fixed) Long start-up time on boot (1.5min even without unpacking/repacking assets)<br />
@@ -29,7 +35,7 @@ using v1.1.1 of the Steam version of the game
 
 -Splash Screen not displaying on boot. <br />
 
--(Fixed) Font overlap during jrpg battle scene <br />
+-Font overlap during jrpg battle scene <br />
 
 ## *Patch Notes*
 
@@ -37,11 +43,13 @@ using v1.1.1 of the Steam version of the game
 
 -Call the "savegame" script after key events to trigger new save data properly (this fixes rest area 1, but more issues may arise). <br />
 
+-Call the "exit_game" script before running "end_game" to ensure trackers update; also forcefully calling exit when select is held down. <br />
+
 -Attempt to save game settings file whenever the "resume game" script runs (to save settings, enter the menu, make changes, and make sure to select "Resume" to go back into the game. This should force the settings file to be saved).<br />
 
 -On first boot, game script data is parsed from a .csv file. A separate .ini file is then saved in the game directory which can be called for much faster startup on subsequent boots (60s -> 1s). This file needs to be removed if the .csv file is updated. <br />
 
--"var buffer" variable for text spacing increased in battle objs <br />
+-(Not added to UTMTCE version of the patch yet) "var buffer" variable for text spacing increased in battle objs <br />
 
 ## *ToDo*
 
@@ -61,12 +69,16 @@ using v1.1.1 of the Steam version of the game
 
 ## *Credits*
 
--Custom palettes in the palette-swapped patch:  
-    "FAMILIORANGE" by gooeyphantasm  
-    "GB GREEN" by gooeyphantasm  
+-Void Stranger by System Erasure  <br />
+
+-Custom palettes that are/will be included: <br />
+    "FAMILIORANGE" by gooeyphantasm  <br />
+    "GB GREEN" by gooeyphantasm  <br />
 
 ## *Built With*
 
 -https://github.com/jmacd/xdelta/blob/release3_1_apl/xdelta3/LICENSE <br />
 
 -https://github.com/JohnnyonFlame/gmloader-next/blob/master/LICENSE.md <br />
+
+-https://github.com/XDOneDude/UndertaleModToolCE/blob/master/LICENSE.txt <br />
