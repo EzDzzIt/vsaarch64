@@ -21,7 +21,7 @@ using v1.1.1 of the Steam version of the game
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
 
--Fruit refusal reults in endless loop <br />
+-(Workaround added) Fruit refusal reults in endless loop <br />
 
 -Music looping incorrectly <br />
 
@@ -29,7 +29,7 @@ using v1.1.1 of the Steam version of the game
 
 -(Workaround added) Settings file not saving after an option is changed. <br />
 
--(Fixed) Long start-up time on boot (1.5min even without unpacking/repacking assets)<br />
+-(Lowered) Long start-up time on boot (1.5min even without unpacking/repacking assets)<br />
 
 -High CPU/RAM usage. <br />
 
@@ -50,6 +50,8 @@ using v1.1.1 of the Steam version of the game
 -On first boot, game script data is parsed from a .csv file. A separate .ini file is then saved in the game directory which can be called for much faster startup on subsequent boots (60s -> 1s). This file needs to be removed if the .csv file is updated. <br />
 
 -(Not added to UTMTCE version of the patch yet) "var buffer" variable for text spacing increased in battle objs <br />
+
+-Added some addityional palettes from SE Discord <br />
 
 ## *ToDo*
 
@@ -77,9 +79,14 @@ using v1.1.1 of the Steam version of the game
 
 -Thanks to the Portmaster Discord for their support <br />
 
--Custom palettes that are/will be included: <br />
-    "FAMILIORANGE" by gooeyphantasm  <br />
+-Thanks to the System Erasure Discord group of modding enthusiasts.
+
+-Custom palettes that are/will be included from the System Erasure Discord: <br />
+    "ZERORANGER (FAMILIORANGE)" by gooeyphantasm  <br />
     "GB GREEN" by gooeyphantasm  <br />
+    "GB POCKET" by gooeyphantasm  <br />
+    "VOID TRANSGER" by Moonie  <br />
+    "GREY" by Moonie  <br />
 
 ## *Built With*
 
