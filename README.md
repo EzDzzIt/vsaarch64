@@ -21,9 +21,9 @@ using v1.1.1 of the Steam version of the game
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
 
--(Workaround added) Fruit refusal reults in endless loop <br />
+-(Workaround added) Fruit refusal reults in endless loop. <br />
 
--Music looping incorrectly <br />
+-Music looping incorrectly. <br />
 
 -(Workaround added) Locust count for void court not updating properly.<br />
 
@@ -51,7 +51,7 @@ using v1.1.1 of the Steam version of the game
 
 -(Not added to UTMTCE version of the patch yet) "var buffer" variable for text spacing increased in battle objs <br />
 
--Added some addityional palettes from SE Discord <br />
+-Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation.  <br />
 
 ## *ToDo*
 
@@ -59,13 +59,9 @@ using v1.1.1 of the Steam version of the game
 
 -Play through each ending to ensure they are all attainable <br />
 
--Adjust main script to include auto-patching of base game data using xdelta3 <br />
-
 -Test on other devices <br />
 
 -Add save backup script for testing paths <br />
-
--Add additional palette options into menu directly. Not a necessity but would be a fun addition. <br />
 
 -Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next <br />
 
@@ -75,9 +71,9 @@ using v1.1.1 of the Steam version of the game
 
 -Testing by Discord User @gooeyphantasm <br />
 
--gmloader by JohnnyOnFlame <br />
+-gmloader by JohnnyOnFlame. <br />
 
--Thanks to the Portmaster Discord for their support <br />
+-Thanks to the Portmaster Discord for their support. <br />
 
 -Thanks to the System Erasure Discord group of modding enthusiasts.
 
