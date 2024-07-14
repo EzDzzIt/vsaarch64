@@ -33,15 +33,24 @@ export GMLOADER_PLATFORM="os_linux"
 # log the execution of the script into log.txt
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
+data_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
+patch_chksm=$(md5sum gamedata/"vs.xdelta" | awk '{print $1}')
+
 # Patch the data.win file
 if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
-elif [ -f "gamedata/data.win" ]; then
+elif [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
   echo "Patching data.win"
   $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
+else
+  echo "Incorrect game checksum, check the instructions and your game version."
 fi
 
-# 2do: Check CRC here
+final_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
+
+echo "Game md5: ""$data_chksm"
+echo "Patch md5: ""$patch_chksm"
+echo "Final Patched Game md5: ""$final_chksm"
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
