@@ -71,6 +71,12 @@ using v1.1.1 of the Steam version of the game
 
 -Void Stranger by System Erasure  <br />
 
+-Testing by Discord User @gooeyphantasm <br />
+
+-gmloader by JohnnyOnFlame <br />
+
+-Thanks to the Portmaster Discord for their support <br />
+
 -Custom palettes that are/will be included: <br />
     "FAMILIORANGE" by gooeyphantasm  <br />
     "GB GREEN" by gooeyphantasm  <br />
