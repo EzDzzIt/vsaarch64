@@ -15,12 +15,11 @@ a = z
 b = z
 x = z
 y = z
-l3 = z
+l1 = z
 
-l1 = f2
-l2 = f3
+l2 = f2
 r1 = mouse_right
-r2 = f5
+r2 = f3
 
 right_analog_up = mouse_movement_up
 right_analog_down = mouse_movement_down
