@@ -73,7 +73,7 @@ using v1.1.1 of the Steam version of the game
 
 -gmloader by JohnnyOnFlame. <br />
 
--Thanks to the Portmaster Discord for their support. <br />
+-Thanks to the Portmaster Discord for their support (gooey for testing, skirlez&Malkov0 for palette implementation) <br />
 
 -Thanks to the System Erasure Discord group of modding enthusiasts.
 
