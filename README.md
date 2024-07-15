@@ -75,7 +75,7 @@ using v1.1.1 of the Steam version of the game
 
 -Thanks to the Portmaster Discord for their support.  <br />
 
--Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for palette implementation). <br />
+-Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for gml palette implementation). <br />
 
 -Custom palettes that are/will be included from the System Erasure Discord: <br />
     "ZERORANGER (FAMILIORANGE)" by gooeyPhantasm  <br />
@@ -83,7 +83,12 @@ using v1.1.1 of the Steam version of the game
     "GB POCKET" by gooeyPhantasm  <br />
     "VOID TRANSGER" by Moonie  <br />
     "GREY" by Moonie  <br />
-
+    "S U N S E T" by Moonie <br />
+    "PACHINKO" by Moonie <br />
+    "P***" by Ayre223 <br />
+    "ICEEY" by Rafl <br />
+    "MAMMON" by Rafl <br />
+    
 ## *Built With*
 
 -https://github.com/jmacd/xdelta/blob/release3_1_apl/xdelta3/LICENSE <br />
