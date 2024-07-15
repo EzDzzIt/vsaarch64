@@ -42,8 +42,14 @@ if [ -f "gamedata/vs-patched.win" ]; then
 elif [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
   echo "Patching data.win"
   $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
+#elif [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "itch_version_md5" ]]
+  #apply patch file to get up to Steam version, check for Steam checksum again
+  #if [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
+    #echo "Patching updated data.win"
+    #$ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
+  #fi
 else
-  echo "Incorrect game checksum, check the instructions and your game version."
+  echo "Incorrect game checksum or game data not found; check the instructions and your game version."
 fi
 
 final_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
