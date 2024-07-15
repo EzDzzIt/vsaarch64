@@ -35,7 +35,7 @@ using v1.1.1 of the Steam version of the game
 
 -Splash Screen not displaying on boot. <br />
 
--Font overlap during jrpg battle scene <br />
+-(Workaround Added) Font overlap during jrpg battle scene <br />
 
 ## *Patch Notes*
 
@@ -49,7 +49,7 @@ using v1.1.1 of the Steam version of the game
 
 -On first boot, game script data is parsed from a .csv file. A separate .ini file is then saved in the game directory which can be called for much faster startup on subsequent boots (60s -> 1s). This file needs to be removed if the .csv file is updated. <br />
 
--(Not added to UTMTCE version of the patch yet) "var buffer" variable for text spacing increased in battle objs <br />
+-"var buffer" variable for text spacing increased in battle objs <br />
 
 -Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation.  <br />
 
@@ -69,18 +69,18 @@ using v1.1.1 of the Steam version of the game
 
 -Void Stranger by System Erasure  <br />
 
--Testing by Discord User @gooeyphantasm <br />
+-Testing by Discord User @gooeyPhantasm <br />
 
 -gmloader by JohnnyOnFlame. <br />
 
 -Thanks to the Portmaster Discord for their support.  <br />
 
--Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, skirlez&Malkov0 for palette implementation). <br />
+-Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for palette implementation). <br />
 
 -Custom palettes that are/will be included from the System Erasure Discord: <br />
-    "ZERORANGER (FAMILIORANGE)" by gooeyphantasm  <br />
-    "GB GREEN" by gooeyphantasm  <br />
-    "GB POCKET" by gooeyphantasm  <br />
+    "ZERORANGER (FAMILIORANGE)" by gooeyPhantasm  <br />
+    "GB GREEN" by gooeyPhantasm  <br />
+    "GB POCKET" by gooeyPhantasm  <br />
     "VOID TRANSGER" by Moonie  <br />
     "GREY" by Moonie  <br />
 
