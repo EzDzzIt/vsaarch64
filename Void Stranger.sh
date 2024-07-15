@@ -80,7 +80,7 @@ if [ ! -f loadedapk ]; then
 fi
 
 # Check for file existence before trying to manipulate them:
-[ -f "./gamedata/vs-patched.win" ] && cp gamedata/vs-patched.win $GAMEDIR/game.droid
+[ -f "./gamedata/vs-patched.win" ] && mv gamedata/vs-patched.win $GAMEDIR/game.droid
 
 # Make sure uinput is accessible so we can make use of the gptokeyb controls
 $ESUDO chmod 666 /dev/uinput
