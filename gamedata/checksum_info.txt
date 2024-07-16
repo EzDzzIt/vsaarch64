@@ -2,7 +2,7 @@ Base data.win checksum:
 29f820538024539f18171fb447034fe7
 
 Base vs.xdelta patch checksum:
-4bd84ba24daa5fa0266eae39256b5dc6
+23c4e5a536333df2929c53a0d1dd5d03
 
 Patched vs-patched.win checksum:
-dbb5906d4a030dfeda2d5869340c1ba0
+a1e180ed57f3bdbf77d46c867fa2811f
