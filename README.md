@@ -3,7 +3,7 @@ experimental void stranger port to Linux handhelds via PortMaster (testing on rg
 https://portmaster.games/faq.html  
 
 using utmtCE and gmloader-next  
-supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io version (itch version is patched to be equivalent to steam version). <br />
+supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io version (itch version is patched to be equivalent to the Steam version). <br />
 
 ## *Instructions for Testing*
 
