@@ -3,13 +3,13 @@ experimental void stranger port to Linux handhelds via PortMaster (testing on rg
 https://portmaster.games/faq.html  
 
 using utmtCE and gmloader-next  
-using v1.1.1 of the Steam version of the game  
+supports v1.1.1 of the Steam version of the game, or version 1.1.1 of the itch.io version (itch version is patched to be equivalent to steam version. <br />
 
 ## *Instructions for Testing*
 
 *Not technically ready for distribution yet*
 
--Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/<br />
+-Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/ <br />
 
 -Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
 
