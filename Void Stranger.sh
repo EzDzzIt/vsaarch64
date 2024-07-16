@@ -46,11 +46,11 @@ if [ -f "gamedata/vs-patched.win" ]; then
 elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
   echo "Patching Steam Version data.win"
   $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
-elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "1a666b533539af4cebb7c12311bd9a56" ]]
+elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "1a666b533539af4cebb7c12311bd9a56" ]]; then
   echo "Itch Version Found. Patching to be equivalent to Steam version."
   mv gamedata/"data.win" gamedata/itch/"data_itch.win"
   $ESUDO $controlfolder/xdelta3 -d -s gamedata/itch/"data_itch.win" gamedata/itch/"vs-itch-to-steam.xdelta" gamedata/"data.win"
-  if [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
+  if [ -f "gamedata/data.win" ]; then
     echo "Patching Updated data.win"
     $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
   else
