@@ -33,30 +33,46 @@ export GMLOADER_PLATFORM="os_linux"
 # log the execution of the script into log.txt
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
-data_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
+game_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
 patch_chksm=$(md5sum gamedata/"vs.xdelta" | awk '{print $1}')
+itch_chksm=$(md5sum gamedata/itch/"vs-itch-to-steam.xdelta" | awk '{print $1}')
+audio1_chksm=$(md5sum gamedata/"audiogroup1.dat" | awk '{print $1}')
+audio2_chksm=$(md5sum gamedata/"audiogroup2.dat" | awk '{print $1}')
+data_chksm=$(md5sum gamedata/"voidstranger_data.csv" | awk '{print $1}')
 
-# Patch the data.win file
+# Patch the data.win file, with support for ItchIo version
 if [ -f "gamedata/vs-patched.win" ]; then
   echo "Found patched data file."
-elif [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
-  echo "Patching data.win"
+elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
+  echo "Patching Steam Version data.win"
   $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
-#elif [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "itch_version_md5" ]]
-  #apply patch file to get up to Steam version, check for Steam checksum again
-  #if [[ -f "gamedata/data.win" ]] && [[ "$data_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
-    #echo "Patching updated data.win"
-    #$ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
-  #fi
+elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "1a666b533539af4cebb7c12311bd9a56" ]]
+  echo "Itch Version Found. Patching to be equivalent to Steam version."
+  mv gamedata/"data.win" gamedata/itch/"data_itch.win"
+  $ESUDO $controlfolder/xdelta3 -d -s gamedata/itch/"data_itch.win" gamedata/itch/"vs-itch-to-steam.xdelta" gamedata/"data.win"
+  if [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
+    echo "Patching Updated data.win"
+    $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
+  else
+    echo "Error while patching. Ensure all required files are in place."
+  fi
 else
   echo "Incorrect game checksum or game data not found; check the instructions and your game version."
 fi
 
 final_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
 
-echo "Game md5: ""$data_chksm"
-echo "Patch md5: ""$patch_chksm"
+echo "Compare these checksum values to the included checksums_info.txt for troubleshooting."
+echo " "
+echo "Game md5: ""$game_chksm"
+echo "Main Patch md5: ""$patch_chksm"
+echo "Itch Patch md5: ""$itch_chksm"
 echo "Final Patched Game md5: ""$final_chksm"
+echo "audiogroup1 md5: ""$audio1_chksm"
+echo "audiogroup2 md5: ""$audio2_chksm"
+echo "data CSV md5: ""$data_chksm"
+echo " "
+
 
 # Check if there is an empty file called "loadedapk" in the dir
 if [ ! -f loadedapk ]; then
