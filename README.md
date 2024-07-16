@@ -19,57 +19,63 @@ using v1.1.1 of the Steam version of the game
 
 ## *Known Issues*
 
+-Music looping incorrectly. <br />
+
+-Slowdown during later puzzle gameplay. <br />
+
+-Splash Screen not displaying on boot. <br />
+
+-High CPU/RAM usage. <br />
+
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
 
 -(Workaround added) Fruit refusal reults in endless loop. <br />
-
--Music looping incorrectly. <br />
 
 -(Workaround added) Locust count for void court not updating properly.<br />
 
 -(Workaround added) Settings file not saving after an option is changed. <br />
 
--(Lowered) Long start-up time on boot (1.5min even without unpacking/repacking assets)<br />
+-(Lowered) Long start-up time on boot (1.5min even without unpacking/repacking assets). <br />
 
--High CPU/RAM usage. <br />
-
--Splash Screen not displaying on boot. <br />
-
--(Workaround Added) Font overlap during jrpg battle scene <br />
+-(Workaround Added) Font overlap during jrpg battle scene. <br />
 
 ## *Patch Notes*
 
--Fixed controls not updating as expected.<br />
+-Fixed controls not updating as expected. <br />
 
 -Call the "savegame" script after key events to trigger new save data properly (this fixes rest area 1, but more issues may arise). <br />
 
 -Call the "exit_game" script before running "end_game" to ensure trackers update; also forcefully calling exit when select is held down. <br />
 
--Attempt to save game settings file whenever the "resume game" script runs (to save settings, enter the menu, make changes, and make sure to select "Resume" to go back into the game. This should force the settings file to be saved).<br />
+-Attempt to save game settings file whenever the "resume game" script runs (to save settings, enter the menu, make changes, and make sure to select "Resume" to go back into the game. This should force the settings file to be saved). <br />
 
 -On first boot, game script data is parsed from a .csv file. A separate .ini file is then saved in the game directory which can be called for much faster startup on subsequent boots (60s -> 1s). This file needs to be removed if the .csv file is updated. <br />
 
--"var buffer" variable for text spacing increased in battle objs <br />
+-"var buffer" variable for text spacing increased in battle objs. <br />
 
--Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation.  <br />
+-Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation. (Thanks Discord User @skirlez)  <br />
 
 ## *ToDo*
 
--Compress audio data to lower ram usage <br />
+-Investigate later puzzle slowdown. <br />
 
--Play through each ending to ensure they are all attainable <br />
+-Investigate audio looping issues. <br />
 
--Test on other devices <br />
+-Compress audio data to lower ram usage. <br />
 
--Add save backup script for testing paths <br />
+-Play through each ending to ensure they are all attainable. <br />
 
--Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next <br />
+-Test on other devices. <br />
+
+-Add save backup script for testing paths. <br />
+
+-Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next. <br />
 
 ## *Credits*
 
--Void Stranger by System Erasure  <br />
+-Void Stranger by System Erasure.  <br />
 
--Testing by Discord User @gooeyPhantasm <br />
+-Testing by Discord User @gooeyPhantasm. <br />
 
 -gmloader by JohnnyOnFlame. <br />
 
