@@ -1,8 +1,9 @@
-Base data.win checksum:
+MD5 hash of data.win:
 29f820538024539f18171fb447034fe7
-
-Base vs.xdelta patch checksum:
-23c4e5a536333df2929c53a0d1dd5d03
-
-Patched vs-patched.win checksum:
-a1e180ed57f3bdbf77d46c867fa2811f
+CertUtil: -hashfile command completed successfully.
+MD5 hash of vs.xdelta:
+285e11c867653465c02166ce7a713bc8
+CertUtil: -hashfile command completed successfully.
+MD5 hash of vs-patched.win:
+02a0b1980029fff019e28f8dceb7ab56
+CertUtil: -hashfile command completed successfully.
