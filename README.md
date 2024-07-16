@@ -23,6 +23,8 @@ using v1.1.1 of the Steam version of the game
 
 -Slowdown during later puzzle gameplay. <br />
 
+-Certain ending counters not being incremented/saved properly <br />
+
 -Splash Screen not displaying on boot. <br />
 
 -High CPU/RAM usage. <br />
@@ -54,6 +56,8 @@ using v1.1.1 of the Steam version of the game
 -"var buffer" variable for text spacing increased in battle objs. <br />
 
 -Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation. (Thanks Discord User @skirlez)  <br />
+
+-Removed some existing logging for clarity in debugging (Pausing allowed, Player Path were taking up 80% of the log file)
 
 ## *ToDo*
 
