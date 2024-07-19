@@ -12,3 +12,4 @@ gmloader
 *.bat
 GM 2023.4.apk
 gamedata/patch_revisions/
+gamedata/stable/vs-5-stable.xdelta
