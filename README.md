@@ -61,6 +61,8 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Removed some existing logging for clarity in debugging (Pausing allowed, Player Path were taking up 80% of the log file)
 
+-Added additional collision object code to ensure enemies spawn facing the correct direction.
+
 ## *ToDo*
 
 -Investigate later puzzle slowdown. <br />
