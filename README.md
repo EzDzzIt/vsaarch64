@@ -23,11 +23,13 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Slowdown during later puzzle gameplay. <br />
 
--Certain ending counters not being incremented/saved properly <br />
+-(verifying fix) Certain ending counters not being incremented/saved properly <br />
 
 -Splash Screen not displaying on boot. <br />
 
 -High CPU/RAM usage. <br />
+
+-(Workaround added) Enemies always spawning in default orientation. (Fixed by Fayti1703 and skirlez) <br />
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
 
@@ -85,7 +87,7 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Thanks to the Portmaster Discord for their support.  <br />
 
--Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for gml palette implementation). <br />
+-Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for gml palette implementation, @skirlez and @Fayti1703 for coding fixes). <br />
 
 -Custom palettes that are/will be included from the System Erasure Discord: <br />
     "ZERORANGER (FAMILIORANGE)" by gooeyPhantasm  <br />
