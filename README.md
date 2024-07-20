@@ -29,6 +29,8 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -High CPU/RAM usage. <br />
 
+-(Workaround added) Late game key event not saving properly.
+
 -(Workaround added) Enemies always spawning in default orientation. (Fixed by Fayti1703 and skirlez) <br />
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
@@ -57,11 +59,13 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -"var buffer" variable for text spacing increased in battle objs. <br />
 
--Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation. (Thanks Discord User @skirlez)  <br />
+-Added some additional palettes from SE Discord; the additional ones are pushed into the main palette array in the menu alarm script that runs after initial menu creation. <br />
 
--Removed some existing logging for clarity in debugging (Pausing allowed, Player Path were taking up 80% of the log file)
+-Removed some existing logging for clarity in debugging (Pausing allowed, Player Path were taking up 80% of the log file). <br />
 
--Added additional collision object code to ensure enemies spawn facing the correct direction.
+-Added additional collision object code to ensure enemies spawn facing the correct direction. <br />
+
+-Additional forced saving to fix ceretain key lategame events. <br />
 
 ## *ToDo*
 
