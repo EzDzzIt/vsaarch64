@@ -10,7 +10,7 @@ MD5 hash of data_itch.win:
 Patch Files: 
 ................................... 
 MD5 hash of vs.xdelta:
-323bb26c1df843f26d1c58b0a2da26cc
+100dd57db4e3ecfc8d4a0afb212d4b6e
  
 MD5 hash of itch\vs-itch-to-steam.xdelta:
 9e4dc5a0ecf88441b1802bb08a738d3c
@@ -19,7 +19,7 @@ MD5 hash of itch\vs-itch-to-steam.xdelta:
 Final Patched File: 
 ................................... 
 MD5 hash of vs-patched.win:
-804419055e8f98abd9e8cb5ddcae2701
+55f1636359a01fa3a3d0fda583e7f351
 ................................... 
  
 Other Game Files: 
