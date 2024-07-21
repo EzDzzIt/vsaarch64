@@ -15,7 +15,7 @@ fi
 source $controlfolder/control.txt
 source $controlfolder/device_info.txt
 export PORT_32BIT="Y"
-export LD_LIBRARY_PATH="/usr/lib32:$GAMEDIR/libs"
+export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/$GAMEDIR/libs:$LD_LIBRARY_PATH"
 
 get_controls
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
@@ -81,10 +81,10 @@ if [ ! -f loadedapk ]; then
 
   $SUDO mkdir -p ./assets/
 
-  $SUDO cp gamedata/"audiogroup1.dat" ./assets/
-  $SUDO cp gamedata/"audiogroup2.dat" ./assets/
-  $SUDO cp gamedata/"splash.png" ./assets/
-  $SUDO cp gamedata/"voidstranger_data.csv" $GAMEDIR
+  $SUDO mv gamedata/"audiogroup1.dat" ./assets/
+  $SUDO mv gamedata/"audiogroup2.dat" ./assets/
+  $SUDO mv gamedata/"splash.png" ./assets/
+  $SUDO mv gamedata/"voidstranger_data.csv" $GAMEDIR
 
   $ESUDO zip -r -0 $GAMEDIR/game.apk ./assets/
 
@@ -101,11 +101,11 @@ fi
 # Make sure uinput is accessible so we can make use of the gptokeyb controls
 $ESUDO chmod 666 /dev/uinput
 
-$GPTOKEYB "gmloader" -c ./voidstranger.gptk &
+$GPTOKEYB "gmloadernext" -c ./voidstranger.gptk &
 
-$ESUDO chmod +x "$GAMEDIR/gmloader"
+$ESUDO chmod +x "$GAMEDIR/gmloadernext"
 
-./gmloader game.apk
+./gmloadernext game.apk
 
 $ESUDO kill -9 $(pidof gptokeyb)
 $ESUDO systemctl restart oga_events &
