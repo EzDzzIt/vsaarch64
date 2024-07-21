@@ -7,13 +7,11 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 ## *Instructions for Testing*
 
-*Not technically ready for distribution yet*
+*Now ready for limited distribution and testing*
 
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/ <br />
 
 -Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
-
--Compile gmloader-next via https://github.com/JohnnyonFlame/gmloader-next and rename output file "gmloader." Drop this file in the main port directory. <br />
 
 -On first run, the game will take a couple of minutes to load. It is running through patching the data.win file via xdelta, zipping audio files and other files into the .apk, and parsing the .csv data file. Subsequent starts should go faster. <br />
 
