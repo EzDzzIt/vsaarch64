@@ -27,11 +27,11 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -High CPU/RAM usage. <br />
 
--(Workaround added) Late game key event not saving properly.
+-(Workaround added) Late game key event not saving properly. (Fixed by AbbyV) <br />
 
 -(Workaround added) Enemies always spawning in default orientation. (Fixed by Fayti1703 and skirlez) <br />
 
--(Workaround added) Problems saving data after certain key events (initially seen with rest area 1).<br />
+-(Workaround added) Problems saving data after certain key events (initially seen with rest area 1). <br />
 
 -(Workaround added) Fruit refusal reults in endless loop. <br />
 
@@ -91,7 +91,7 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Thanks to the Portmaster Discord for their support.  <br />
 
--Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for gml palette implementation, @skirlez and @Fayti1703 for coding fixes). <br />
+-Thanks to the System Erasure Discord group of modding enthusiasts (gooey for testing, @skirlez & @Malkav0 for gml palette implementation, @skirlez, @AbbyV and @Fayti1703 for coding fixes). <br />
 
 -Custom palettes that are/will be included from the System Erasure Discord: <br />
     "ZERORANGER (FAMILIORANGE)" by gooeyPhantasm  <br />
@@ -107,8 +107,6 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
     "MAMMON" by Rafl <br />
     
 ## *Built With*
-
--https://github.com/jmacd/xdelta/blob/release3_1_apl/xdelta3/LICENSE <br />
 
 -https://github.com/JohnnyonFlame/gmloader-next/blob/master/LICENSE.md <br />
 
