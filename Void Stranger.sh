@@ -53,7 +53,7 @@ else
   elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "1a666b533539af4cebb7c12311bd9a56" ]]; then
     echo "Itch Version Found. Patching to be equivalent to Steam version. data.win md5 ""$game_chksm"
     mv gamedata/"data.win" gamedata/"data_itch.win"
-    $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data_itch.win" gamedata/itch/"vs-itch-to-steam.xdelta" gamedata/"data.win"
+    $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data_itch.win" gamedata/"vs-itch-to-steam.xdelta" gamedata/"data.win"
     echo "Patching Updated data.win"
     $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
     echo "Cleaning up."

@@ -12,7 +12,7 @@ Patch Files:
 MD5 hash of vs.xdelta:
 100dd57db4e3ecfc8d4a0afb212d4b6e
  
-MD5 hash of itch\vs-itch-to-steam.xdelta:
+MD5 hash of vs-itch-to-steam.xdelta:
 9e4dc5a0ecf88441b1802bb08a738d3c
 ................................... 
  
