@@ -21,28 +21,28 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -From the .gptk file: <br />
 
-(|controller button| = |keyboard key|)
-back = esc
-start = enter
-up = up
-down = down
-left = left
-right = right
-left_analog_up = up
-left_analog_down = down
-left_analog_left = left
-left_analog_right = right
-a = z
-b = z
-x = z
-y = z
-l1 = z
-l2 = f2
-r1 = mouse_right
-r2 = f3
-right_analog_up = mouse_movement_up
-right_analog_down = mouse_movement_down
-right_analog_left = mouse_movement_left
+(|controller button| = |keyboard key|)  
+back = esc  
+start = enter  
+up = up  
+down = down  
+left = left  
+right = right  
+left_analog_up = up  
+left_analog_down = down  
+left_analog_left = left  
+left_analog_right = right  
+a = z  
+b = z  
+x = z  
+y = z  
+l1 = z  
+l2 = f2  
+r1 = mouse_right  
+r2 = f3  
+right_analog_up = mouse_movement_up  
+right_analog_down = mouse_movement_down  
+right_analog_left = mouse_movement_left  
 right_analog_right = mouse_movement_right <br />
 
 The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully functional, but holding these buttons will result in multiple inputs if you're trying to skip through dialogue. <br />
