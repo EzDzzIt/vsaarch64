@@ -31,7 +31,7 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1). <br />
 
--(Workaround added) Fruit refusal reults in endless loop. <br />
+-(Workaround added) Fruit refusal results in endless loop. <br />
 
 -(Workaround added) Locust count for void court not updating properly.<br />
 
@@ -61,7 +61,7 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Added additional collision object code to ensure enemies spawn facing the correct direction. <br />
 
--Additional forced saving to fix ceretain key lategame events. <br />
+-Additional forced saving to fix certain key lategame events. <br />
 
 ## *ToDo*
 
