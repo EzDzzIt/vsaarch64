@@ -21,8 +21,6 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Slowdown during later puzzle gameplay. <br />
 
--(verifying fix) Certain ending counters not being incremented/saved properly <br />
-
 -Splash Screen not displaying on boot. <br />
 
 -High CPU/RAM usage. <br />
