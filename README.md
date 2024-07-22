@@ -15,6 +15,38 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -On first run, the game will take a couple of minutes to load. It is running through patching the data.win file via xdelta, zipping audio files and other files into the .apk, and parsing the .csv data file. Subsequent starts should go faster. <br />
 
+## *Controls*
+
+-The game should recongnize an xinput controller natively if you are using one with your device for some reason. <br />
+
+-From the .gptk file: <br />
+
+(|controller button| = |keyboard key|)  
+back = esc  
+start = enter  
+up = up  
+down = down  
+left = left  
+right = right  
+left_analog_up = up  
+left_analog_down = down  
+left_analog_left = left  
+left_analog_right = right  
+a = z  
+b = z  
+x = z  
+y = z  
+l1 = z  
+l2 = f2  
+r1 = mouse_right  
+r2 = f3  
+right_analog_up = mouse_movement_up  
+right_analog_down = mouse_movement_down  
+right_analog_left = mouse_movement_left  
+right_analog_right = mouse_movement_right <br />
+
+The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully functional, but holding these buttons will result in multiple inputs if you're trying to skip through dialogue. <br />
+
 ## *Known Issues*
 
 -Music looping incorrectly. <br />
@@ -31,7 +63,7 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1). <br />
 
--(Workaround added) Fruit refusal reults in endless loop. <br />
+-(Workaround added) Fruit refusal results in endless loop. <br />
 
 -(Workaround added) Locust count for void court not updating properly.<br />
 
@@ -61,7 +93,7 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 
 -Added additional collision object code to ensure enemies spawn facing the correct direction. <br />
 
--Additional forced saving to fix ceretain key lategame events. <br />
+-Additional forced saving to fix certain key lategame events. <br />
 
 ## *ToDo*
 
@@ -74,8 +106,6 @@ supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io versi
 -Play through each ending to ensure they are all attainable. <br />
 
 -Test on other devices. <br />
-
--Add save backup script for testing paths. <br />
 
 -Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next. <br />
 
