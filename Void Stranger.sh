@@ -36,11 +36,11 @@ exec > >(tee "$GAMEDIR/log.txt") 2>&1
 # Check to see if a patched game already exists at the start, and verify with current patch version:
 if [ -f "game.droid" ]; then
   final_chksm=$(md5sum "game.droid" | awk '{print $1}')
-  if [ "$final_chksm" = "55f1636359a01fa3a3d0fda583e7f351" ]; then
-    echo "Found patched game file. Checksum good. ""$final_chksm"
+  if [ "$final_chksm" = "e07f256f18394491b4bace0e1b675465" ]; then
+    echo "Found patched GAME.DROID game file. Checksum good. ""$final_chksm"
   else
-    echo "game.droid checksum does not match; md5: ""$final_chksm"
-    exit 0
+    echo "WARNING: game.droid checksum does not match; expecting e07f256f18394491b4bace0e1b675465; md5: ""$final_chksm"
+    ##exit 0
   fi
 else
   # get data.win checksum
@@ -61,6 +61,10 @@ else
   else
     echo "Incorrect game checksum or game data not found; check the instructions and your game version. data.win md5 ""$game_chksm"
     exit 0
+  fi
+  if [ -f "gamedata/vs-patched.win" ]; then 
+    patched_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
+    echo "Patched game checksum expecting e07f256f18394491b4bace0e1b675465; current md5: ""$patched_chksm"
   fi
 fi
 
