@@ -14,7 +14,7 @@ fi
 
 source $controlfolder/control.txt
 source $controlfolder/device_info.txt
-export PORT_32BIT="Y"
+export PORT_32BIT="N"
 export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/$GAMEDIR/lib:$LD_LIBRARY_PATH"
 
 get_controls
@@ -102,7 +102,7 @@ fi
 $ESUDO chmod 666 /dev/uinput
 
 $GPTOKEYB "gmloadernext" -c ./voidstranger.gptk &
-
+  
 $ESUDO chmod +x "$GAMEDIR/gmloadernext"
 
 ./gmloadernext game.apk
