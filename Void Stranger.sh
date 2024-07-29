@@ -15,6 +15,7 @@ fi
 source $controlfolder/control.txt
 source $controlfolder/device_info.txt
 export PORT_32BIT="N"
+GAMEDIR="/$directory/ports/voidstranger"
 export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/$GAMEDIR/lib:$LD_LIBRARY_PATH"
 
 # [ -f "/etc/os-release" ] && source "/etc/os-release"
@@ -28,8 +29,6 @@ get_controls
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
 
 $ESUDO chmod 666 /dev/tty0
-
-GAMEDIR="/$directory/ports/voidstranger"
 
 cd $GAMEDIR
 
