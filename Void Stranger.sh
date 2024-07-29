@@ -69,12 +69,14 @@ else
     $ESUDO rm gamedata/"data_itch.win"
   else
     echo "Incorrect game checksum or game data not found; check the instructions and your game version. data.win md5 ""$game_chksm"
+    ./lib/text_viewer -f 25 -w -t "Error" --input_file "log.txt"
     exit 0
   fi
   if [ -f "gamedata/vs-patched.win" ]; then 
     patched_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
     echo "Patched game checksum expecting $expected_chksm; current md5: ""$patched_chksm"
   fi
+  ./lib/text_viewer -f 25 -w -t "First Time Setup" --input_file "first_time_setup.txt"
 fi
 
 # Check if there is an empty file called "loadedapk" in the dir, then add audio files if not
