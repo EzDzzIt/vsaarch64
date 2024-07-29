@@ -12,7 +12,7 @@ left_analog_left = left
 left_analog_right = right
 
 repeat_delay = 32
-repeat_interval = 16
+repeat_interval = 1
 a = z
 b = z
 x = z
