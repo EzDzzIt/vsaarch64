@@ -51,11 +51,11 @@ The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully 
 
 -Music looping incorrectly. <br />
 
--Slowdown during later puzzle gameplay. <br />
-
 -Splash Screen not displaying on boot. <br />
 
 -High CPU/RAM usage. <br />
+
+-(Workaround added) Slowdown during later puzzle gameplay. <br />
 
 -(Workaround added) Late game key event not saving properly. (Fixed by AbbyV) <br />
 
@@ -95,17 +95,13 @@ The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully 
 
 -Additional forced saving to fix certain key lategame events. <br />
 
-## *ToDo*
+-Changed the quantity of objects onscreen during a lategame puzzle to reduce slowdown. <br />
 
--Investigate later puzzle slowdown. <br />
+## *ToDo*
 
 -Investigate audio looping issues. <br />
 
 -Compress audio data to lower ram usage. <br />
-
--Play through each ending to ensure they are all attainable. <br />
-
--Test on other devices. <br />
 
 -Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next. <br />
 
