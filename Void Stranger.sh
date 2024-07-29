@@ -17,6 +17,13 @@ source $controlfolder/device_info.txt
 export PORT_32BIT="N"
 export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/$GAMEDIR/lib:$LD_LIBRARY_PATH"
 
+# [ -f "/etc/os-release" ] && source "/etc/os-release"
+
+# if [ "$OS_NAME" == "JELOS" ]; then
+#   export SPA_PLUGIN_DIR="/usr/lib32/spa-0.2"
+#   export PIPEWIRE_MODULE_DIR="/usr/lib32/pipewire-0.3/"
+# fi
+
 get_controls
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
 
@@ -33,13 +40,16 @@ export GMLOADER_PLATFORM="os_linux"
 # log the execution of the script into log.txt
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
+# here is what we are expecting to get out of the patching process
+expected_chksm="f38006605356a868087ccff137eb274d"
+
 # Check to see if a patched game already exists at the start, and verify with current patch version:
 if [ -f "game.droid" ]; then
   final_chksm=$(md5sum "game.droid" | awk '{print $1}')
-  if [ "$final_chksm" = "e07f256f18394491b4bace0e1b675465" ]; then
-    echo "Found patched GAME.DROID game file. Checksum good. ""$final_chksm"
+  if [ "$final_chksm" = "$expected_chksm" ]; then
+    echo "Found patched game.droid file. Checksum good. md5: ""$final_chksm"
   else
-    echo "WARNING: game.droid checksum does not match; expecting e07f256f18394491b4bace0e1b675465; md5: ""$final_chksm"
+    echo "WARNING: game.droid checksum does not match; expecting $expected_chksm; current md5: ""$final_chksm"
     ##exit 0
   fi
 else
@@ -64,29 +74,42 @@ else
   fi
   if [ -f "gamedata/vs-patched.win" ]; then 
     patched_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
-    echo "Patched game checksum expecting e07f256f18394491b4bace0e1b675465; current md5: ""$patched_chksm"
+    echo "Patched game checksum expecting $expected_chksm; current md5: ""$patched_chksm"
   fi
 fi
 
 # Check if there is an empty file called "loadedapk" in the dir, then add audio files if not
 if [ ! -f loadedapk ]; then
-  echo "Zipping game files..."
-  $ESUDO mkdir -p ./assets/
-  $ESUDO mv gamedata/"audiogroup1.dat" ./assets/
-  $ESUDO mv gamedata/"audiogroup2.dat" ./assets/
-  # Splash Screen currently broken
-  # $ESUDO mv gamedata/"splash.png" ./assets/ 
-  $ESUDO zip -r -0 $GAMEDIR/game.apk ./assets/
-  $ESUDO rm -r ./assets/
-  touch loadedapk
-  echo "Files loaded in to .apk"
+  echo "Attempting to zip game files into game.apk..."
+  if [[ -f "gamedata/audiogroup1.dat" ]] && [[ -f "gamedata/audiogroup2.dat" ]]; then
+    touch loadedapk
+    $ESUDO mkdir -p ./assets/
+    $ESUDO mv gamedata/"audiogroup1.dat" ./assets/
+    $ESUDO mv gamedata/"audiogroup2.dat" ./assets/
+    # Splash Screen currently broken
+    # $ESUDO mv gamedata/"splash.png" ./assets/ 
+    $ESUDO zip -r -0 $GAMEDIR/game.apk ./assets/
+    $ESUDO rm -r ./assets/
+  else
+    echo "Some audiogroup data not found. Please add both audiogroup.dat files to the /gamedata/ directory."
+  fi
+fi
+
+# add a warning if no files have been packed into game.apk
+apk_size=$(du "game.apk" | awk '{print $1}')
+if [ "$apk_size" = "8512" ]; then
+    echo "WARNING: game.apk has not added any game data. If you don't have audio, please add both audiogroup.dat files to the /gamedata/ directory."
+    if [ -f loadedapk ]; then
+      echo "loadedapk file removed."
+      $ESUDO rm "loadedapk"
+    fi
 fi
 
 # move csv data file to main dir and clean if the ini has been generated already
 if [ ! -f csvstring.ini ]; then
   if [ ! -f voidstranger_data.csv ]; then
     $ESUDO cp gamedata/"voidstranger_data.csv" ./
-    echo "CSV data file copied to main dir."
+    echo "CSV data file copied to main directory."
   fi
 else
   if [ -f voidstranger_data.csv ]; then
