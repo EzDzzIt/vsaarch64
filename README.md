@@ -95,6 +95,8 @@ The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully 
 
 -Changed the quantity of objects onscreen during a lategame puzzle to reduce slowdown. <br />
 
+-Added "splash" binary, code by nate. Simple SDL2 binary to display our workaround Splash Screens on load. <br />
+
 ## *ToDo*
 
 -Investigate audio looping issues. <br />
