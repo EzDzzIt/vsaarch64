@@ -84,13 +84,9 @@ fi
 
 #SPLASH TIME
 if [ $first_time = true ]; then
-  ./lib/splash "loadingsplash.bmp" 640 480 &
-elif [ -f "gamedata/splash.bmp" ]; then
-  ./lib/splash gamedata/"splash.bmp" 640 480 &
+  ./lib/splash "loadingsplash.png" 640 480 &
 elif [ -f "gamedata/splash.png" ]; then
-  convert gamedata/"splash.png" gamedata/"splash.bmp"
-  echo "Splash image converted to .bmp"
-  ./lib/splash gamedata/"splash.bmp" 640 480 &
+  ./lib/splash gamedata/"splash.png" 640 480 &
 else
   echo "No splash image found."
 fi
