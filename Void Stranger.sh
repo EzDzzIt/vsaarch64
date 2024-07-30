@@ -51,6 +51,16 @@ if [ -f "game.droid" ]; then
     echo "WARNING: game.droid checksum does not match; expecting $expected_chksm; current md5: ""$final_chksm"
     ##exit 0
   fi
+  #SPLASH TIME
+  if [ -f "gamedata/splash.bmp" ]; then
+    ./lib/splash gamedata/"splash.bmp" 640 480 &
+  elif [ -f "gamedata/splash.png" ]; then
+    convert gamedata/"splash.png" gamedata/"splash.bmp"
+    echo "Splash image converted to .bmp"
+    ./lib/splash gamedata/"splash.bmp" 640 480 &
+  else
+    echo "No splash image found."
+  fi
 else
   # get data.win checksum
   game_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
@@ -87,8 +97,6 @@ if [ ! -f loadedapk ]; then
     $ESUDO mkdir -p ./assets/
     $ESUDO mv gamedata/"audiogroup1.dat" ./assets/
     $ESUDO mv gamedata/"audiogroup2.dat" ./assets/
-    # Splash Screen currently broken
-    # $ESUDO mv gamedata/"splash.png" ./assets/ 
     $ESUDO zip -r -0 $GAMEDIR/game.apk ./assets/
     $ESUDO rm -r ./assets/
   else
