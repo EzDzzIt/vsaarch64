@@ -51,16 +51,6 @@ if [ -f "game.droid" ]; then
     echo "WARNING: game.droid checksum does not match; expecting $expected_chksm; current md5: ""$final_chksm"
     ##exit 0
   fi
-  #SPLASH TIME
-  if [ -f "gamedata/splash.bmp" ]; then
-    ./lib/splash gamedata/"splash.bmp" 640 480 &
-  elif [ -f "gamedata/splash.png" ]; then
-    convert gamedata/"splash.png" gamedata/"splash.bmp"
-    echo "Splash image converted to .bmp"
-    ./lib/splash gamedata/"splash.bmp" 640 480 &
-  else
-    echo "No splash image found."
-  fi
 else
   # get data.win checksum
   game_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
@@ -89,6 +79,17 @@ else
   ./lib/text_viewer -f 25 -w -t "First Time Setup" --input_file "first_time_setup.txt"
 fi
 
+#SPLASH TIME
+if [ -f "gamedata/splash.bmp" ]; then
+  ./lib/splash gamedata/"splash.bmp" 640 480 &
+elif [ -f "gamedata/splash.png" ]; then
+  convert gamedata/"splash.png" gamedata/"splash.bmp"
+  echo "Splash image converted to .bmp"
+  ./lib/splash gamedata/"splash.bmp" 640 480 &
+else
+  echo "No splash image found."
+fi
+  
 # Check if there is an empty file called "loadedapk" in the dir, then add audio files if not
 if [ ! -f loadedapk ]; then
   echo "Attempting to zip game files into game.apk..."
