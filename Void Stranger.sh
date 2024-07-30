@@ -57,13 +57,14 @@ if [ -f "game.droid" ]; then
 else
   # get data.win checksum
   game_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
+  first_time=true
   # verify if Steam Version, then patch
   if [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "29f820538024539f18171fb447034fe7" ]]; then
-    echo "Steam Version Found. Patching data.win. data.win md5 ""$game_chksm"
+    echo "Steam Version 1.1.1 Found. Patching data.win. data.win md5 ""$game_chksm"
     $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
   # or check if it's the Itch version, patch for Steam Version parity and then patch again
   elif [[ -f "gamedata/data.win" ]] && [[ "$game_chksm" = "1a666b533539af4cebb7c12311bd9a56" ]]; then
-    echo "Itch Version Found. Patching to be equivalent to Steam version. data.win md5 ""$game_chksm"
+    echo "Itch Version 1.1.1 Found. Patching to be equivalent to Steam version. data.win md5 ""$game_chksm"
     mv gamedata/"data.win" gamedata/"data_itch.win"
     $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data_itch.win" gamedata/"vs-itch-to-steam.xdelta" gamedata/"data.win"
     echo "Patching Updated data.win"
@@ -77,8 +78,8 @@ else
   if [ -f "gamedata/vs-patched.win" ]; then 
     patched_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
     echo "Patched game checksum expecting $expected_chksm; current md5: ""$patched_chksm"
+    first_time=true
   fi
-  first_time=true
 fi
 
 #SPLASH TIME
@@ -112,7 +113,7 @@ fi
 # add a warning if no files have been packed into game.apk
 apk_size=$(du "game.apk" | awk '{print $1}')
 if [ "$apk_size" = "8512" ]; then
-    echo "WARNING: game.apk has not added any game data. If you don't have audio, please add both audiogroup.dat files to the /gamedata/ directory."
+    echo "WARNING: game.apk does not contain any game data. If you don't have audio, please add both audiogroup.dat files to the /gamedata/ directory."
     if [ -f loadedapk ]; then
       echo "loadedapk file removed."
       $ESUDO rm "loadedapk"
