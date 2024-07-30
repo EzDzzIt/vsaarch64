@@ -5,9 +5,7 @@ https://portmaster.games/faq.html
 using utmtCE and gmloader-next  
 supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io version (itch version is patched to be equivalent to the Steam version). <br />
 
-## *Instructions for Testing*
-
-*Now ready for limited distribution and testing*
+## *Instructions for Running*
 
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/ <br />
 
@@ -51,9 +49,9 @@ The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully 
 
 -Music looping incorrectly. <br />
 
--Splash Screen not displaying on boot. <br />
-
 -High CPU/RAM usage. <br />
+
+-(Workaround added) Splash Screen not displaying on boot. <br />
 
 -(Workaround added) Slowdown during later puzzle gameplay. <br />
 
@@ -103,8 +101,6 @@ The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully 
 
 -Compress audio data to lower ram usage. <br />
 
--Fix (or wait for a fix for) Splash Screen Rendering in gmloader-next. <br />
-
 ## *Credits*
 
 -Void Stranger by System Erasure.  <br />
@@ -129,7 +125,9 @@ The "X" and "L1" buttons are planned to be "turbo" buttons; currently not fully 
     "P***" by Ayre223 <br />
     "ICEEY" by Rafl <br />
     "MAMMON" by Rafl <br />
-    
+
+-Custom loading splash screen by gooeyPhantasm. Font is Alkhemikal by Jeti. <br />
+
 ## *Built With*
 
 -https://github.com/JohnnyonFlame/gmloader-next/blob/master/LICENSE.md <br />
