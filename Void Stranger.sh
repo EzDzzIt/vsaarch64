@@ -42,6 +42,9 @@ exec > >(tee "$GAMEDIR/log.txt") 2>&1
 # here is what we are expecting to get out of the patching process
 expected_chksm="f38006605356a868087ccff137eb274d"
 
+#first time setup check
+first_time=false
+
 # Check to see if a patched game already exists at the start, and verify with current patch version:
 if [ -f "game.droid" ]; then
   final_chksm=$(md5sum "game.droid" | awk '{print $1}')
@@ -69,18 +72,19 @@ else
     $ESUDO rm gamedata/"data_itch.win"
   else
     echo "Incorrect game checksum or game data not found; check the instructions and your game version. data.win md5 ""$game_chksm"
-    ./lib/text_viewer -f 25 -w -t "Error" --input_file "log.txt"
     exit 0
   fi
   if [ -f "gamedata/vs-patched.win" ]; then 
     patched_chksm=$(md5sum gamedata/"vs-patched.win" | awk '{print $1}')
     echo "Patched game checksum expecting $expected_chksm; current md5: ""$patched_chksm"
   fi
-  ./lib/text_viewer -f 25 -w -t "First Time Setup" --input_file "first_time_setup.txt"
+  first_time=true
 fi
 
 #SPLASH TIME
-if [ -f "gamedata/splash.bmp" ]; then
+if [ $first_time = true ]; then
+  ./lib/splash "loadingsplash.bmp" 640 480 &
+elif [ -f "gamedata/splash.bmp" ]; then
   ./lib/splash gamedata/"splash.bmp" 640 480 &
 elif [ -f "gamedata/splash.png" ]; then
   convert gamedata/"splash.png" gamedata/"splash.bmp"

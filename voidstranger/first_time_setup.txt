@@ -1,5 +1,0 @@
-Please let the setup process run for 2-3 minutes. 
-
-Audio data will be zipped into the game.apk file, and the game data .csv file will be parsed. Subsequent start-ups should be faster (<1 minute).
-
-Press A/B and move the dpad until you can select "close" below to continue.
