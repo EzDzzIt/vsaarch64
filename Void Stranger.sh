@@ -18,13 +18,6 @@ export PORT_32BIT="N"
 GAMEDIR="/$directory/ports/voidstranger"
 export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/$GAMEDIR/lib:$LD_LIBRARY_PATH"
 
-# [ -f "/etc/os-release" ] && source "/etc/os-release"
-
-# if [ "$OS_NAME" == "JELOS" ]; then
-#   export SPA_PLUGIN_DIR="/usr/lib32/spa-0.2"
-#   export PIPEWIRE_MODULE_DIR="/usr/lib32/pipewire-0.3/"
-# fi
-
 get_controls
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
 
@@ -82,11 +75,16 @@ else
   fi
 fi
 
+
 #SPLASH TIME
 if [ $first_time = true ]; then
-  ./lib/splash "loadingsplash.png" 640 480 &
+  $ESUDO ./lib/splash "loadingsplash.png" &
+  $ESUDO ./lib/splash "loadingsplash.png" &
+  echo "First splash."
 elif [ -f "gamedata/splash.png" ]; then
-  ./lib/splash gamedata/"splash.png" 640 480 &
+  $ESUDO ./lib/splash gamedata/"splash.png" &
+  $ESUDO ./lib/splash gamedata/"splash.png" &
+  echo "Normal splash."
 else
   echo "No splash image found."
 fi
