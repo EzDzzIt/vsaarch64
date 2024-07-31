@@ -75,8 +75,10 @@ else
   fi
 fi
 
+$ESUDO chmod +x "$GAMEDIR/lib/splash"
 
 #SPLASH TIME
+#runs twice to ensure it shows up
 if [ $first_time = true ]; then
   $ESUDO ./lib/splash "loadingsplash.png" &
   $ESUDO ./lib/splash "loadingsplash.png" &
