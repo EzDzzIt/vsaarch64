@@ -14,9 +14,8 @@ fi
 
 source $controlfolder/control.txt
 source $controlfolder/device_info.txt
-export PORT_32BIT="N"
 GAMEDIR="/$directory/ports/voidstranger"
-export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/$GAMEDIR/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/usr/lib:/$GAMEDIR/lib:$LD_LIBRARY_PATH"
 
 get_controls
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
@@ -24,10 +23,6 @@ get_controls
 $ESUDO chmod 666 /dev/tty0
 
 cd $GAMEDIR
-
-export GMLOADER_DEPTH_DISABLE=1
-export GMLOADER_SAVEDIR="$GAMEDIR"
-export GMLOADER_PLATFORM="os_linux"
 
 # log the execution of the script into log.txt
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
