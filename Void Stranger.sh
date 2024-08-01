@@ -3,13 +3,13 @@
 XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 
 if [ -d "/opt/system/Tools/PortMaster/" ]; then
-  export controlfolder="/opt/system/Tools/PortMaster"
+  controlfolder="/opt/system/Tools/PortMaster"
 elif [ -d "/opt/tools/PortMaster/" ]; then
-  export controlfolder="/opt/tools/PortMaster"
+  controlfolder="/opt/tools/PortMaster"
 elif [ -d "$XDG_DATA_HOME/PortMaster/" ]; then
-  export controlfolder="$XDG_DATA_HOME/PortMaster"
+  controlfolder="$XDG_DATA_HOME/PortMaster"
 else
-  export controlfolder="/roms/ports/PortMaster"
+  controlfolder="/roms/ports/PortMaster"
 fi
 
 source $controlfolder/control.txt
@@ -52,7 +52,10 @@ else
   echo "First splash."
 
   # game patching cases located in the game_patching script
-  ./game_patching.txt
+  . ./game_patching.txt
+  if [ $? != 0 ]; then
+    exit 0
+  fi
 
   # zip audio into the .apk
   echo "Attempting to zip game files into game.apk..."
@@ -63,7 +66,7 @@ else
     $ESUDO zip -r -0 $GAMEDIR/game.apk ./assets/
     $ESUDO rm -r ./assets/
   else
-    echo "Some audiogroup data not found. Please add all assets to the /gamedata/ folder and try again."
+    echo "WARNING: Some audiogroup data not found. Please add all assets to the /gamedata/ folder and try again."
     exit 0
   fi
 

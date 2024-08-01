@@ -4,8 +4,8 @@
 if [ -f "gamedata/data.win" ]; then
 	game_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
 else
-	echo "Game data not found; check the instructions."
-	exit 0
+	echo "WARNING: Game data not found; check the instructions."
+	return 1
 fi
 
 itch_check=false
@@ -16,8 +16,8 @@ case $game_chksm in
 	29f820538024539f18171fb447034fe7) echo "Steam Version 1.1.1 Found. Patching data.win."; patch_id="vs.xdelta";;
 	1a666b533539af4cebb7c12311bd9a56) echo "Itch Version 1.1.1 Found. Patching data.win."; itch_check=true; itch_patch="vs-itch-to-steam.xdelta" patch_id="vs.xdelta";;
 	*)
-        echo "Game checksum not found; check the instructions and your game version. data.win md5 ""$game_chksm"
-        exit 0
+        echo "WARNING: Game checksum not found; check the instructions and your game version. data.win md5 ""$game_chksm"
+        return 1
         ;;
 esac
 
@@ -29,3 +29,4 @@ else
 	$ESUDO $controlfolder/xdelta3 -f -d -s gamedata/"data.win" gamedata/$patch_id gamedata/"vs-patched.win"
 	$ESUDO rm gamedata/"data_itch.win"
 fi
+return 0
