@@ -3,13 +3,13 @@
 XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 
 if [ -d "/opt/system/Tools/PortMaster/" ]; then
-  controlfolder="/opt/system/Tools/PortMaster"
+  export controlfolder="/opt/system/Tools/PortMaster"
 elif [ -d "/opt/tools/PortMaster/" ]; then
-  controlfolder="/opt/tools/PortMaster"
+  export controlfolder="/opt/tools/PortMaster"
 elif [ -d "$XDG_DATA_HOME/PortMaster/" ]; then
-  controlfolder="$XDG_DATA_HOME/PortMaster"
+  export controlfolder="$XDG_DATA_HOME/PortMaster"
 else
-  controlfolder="/roms/ports/PortMaster"
+  export controlfolder="/roms/ports/PortMaster"
 fi
 
 source $controlfolder/control.txt
@@ -24,6 +24,7 @@ get_controls
 $ESUDO chmod 666 /dev/tty0
 $ESUDO chmod +x "$GAMEDIR/lib/splash"
 $ESUDO chmod +x "$GAMEDIR/gmloadernext"
+$ESUDO chmod +x "$GAMEDIR/game_patching.txt"
 $ESUDO chmod 666 /dev/uinput
 
 cd $GAMEDIR
@@ -41,7 +42,7 @@ if [ -f "installed" ]; then
     $ESUDO ./lib/splash gamedata/"splash.png" 8000 &
     echo "Normal splash."
   else
-    echo "No splash image found."
+    echo "No splash image found. Add splash.png to the /gamedata/ folder."
   fi
 else
   # first time installation process
@@ -50,29 +51,8 @@ else
   $ESUDO ./lib/splash "loadingsplash.png" 12000 &
   echo "First splash."
 
-  # get data.win checksum
-  game_chksm=$(md5sum gamedata/"data.win" | awk '{print $1}')
-
-  # verify Steam Version, then patch
-  if [ "$game_chksm" = "29f820538024539f18171fb447034fe7" ]; then
-    echo "Steam Version 1.1.1 Found. Patching data.win. data.win md5 ""$game_chksm"
-    $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
-  
-  # or check if it's an Itch version, patch for Steam Version parity and then patch again
-  elif [ "$game_chksm" = "1a666b533539af4cebb7c12311bd9a56" ]; then
-    echo "Itch Version 1.1.1 Found. Patching to be equivalent to Steam version. data.win md5 ""$game_chksm"
-    mv gamedata/"data.win" gamedata/"data_itch.win"
-    $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data_itch.win" gamedata/"vs-itch-to-steam.xdelta" gamedata/"data.win"
-    echo "Patching Updated data.win"
-    $ESUDO $controlfolder/xdelta3 -d -s gamedata/"data.win" gamedata/"vs.xdelta" gamedata/"vs-patched.win"
-    echo "Cleaning up."
-    $ESUDO rm gamedata/"data_itch.win"
-
-  # if the game checksum does not match any expected data, could mean game files are missing or incorrect
-  else
-    echo "Incorrect game checksum or game data not found; check the instructions and your game version. data.win md5 ""$game_chksm"
-    exit 0
-  fi
+  # game patching cases located in the game_patching script
+  ./game_patching.txt
 
   # zip audio into the .apk
   echo "Attempting to zip game files into game.apk..."
