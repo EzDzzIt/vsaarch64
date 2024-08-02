@@ -29,4 +29,10 @@ else
 	$ESUDO $controlfolder/xdelta3 -f -d -s gamedata/"data.win" gamedata/$patch_id gamedata/"vs-patched.win"
 	$ESUDO rm gamedata/"data_itch.win"
 fi
+
+if [ ! -f "vs-patched.win" ]; then
+	echo "WARNING: Patching unsuccessful; please check the instructions and try again. data.win md5 ""$game_chksm"
+	return 1
+fi
+
 return 0
