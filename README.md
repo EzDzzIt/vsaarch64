@@ -9,8 +9,10 @@ Currently only supports v1.1.1 of the Steam version of the game, or v1.1.1 of th
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/ <br />
 
 -If v1.1.1 is no longer the latest release, ensure you download that version by using:  
+
     steam://nav/console (in a browser)  
     download_depot 2121980 2121981 5296775019770307860 (enter in the Steam console)  
+    
 
 -Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
 
