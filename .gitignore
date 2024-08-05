@@ -1,13 +1,12 @@
 *.win
 *.dat
 *.csv
-*.vs
-*.vslocal
 *.exe
 *.dll
 *.wav
 *.ogg
 *.bat
+*.gml
 GM 2023.4.apk
 voidstranger/gamedata/patch_revisions/
 voidstranger/gamedata/archive/
