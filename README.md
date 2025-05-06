@@ -2,21 +2,21 @@
 experimental void stranger port to Linux handhelds via PortMaster (testing on rg35xxh)  
 https://portmaster.games/faq.html  
 
-Currently only supports v1.1.1 of the Steam version of the game, or v1.1.1 of the itch.io version (itch version is patched to be equivalent to the Steam version). <br />
+Currently only supports v1.1.3 of the Steam version of the game, or v1.1.3 of the itch.io version (itch version is patched to be equivalent to the Steam version). <br />
 
-## *Instructions for Running*
+## *Instructions*
 
 -Purchase game via https://store.steampowered.com/app/2121980/Void_Stranger/ <br />
 
--If v1.1.1 is no longer the latest release, ensure you download that version by using:  
+-If v1.1.3 is no longer the latest release, ensure you download that version by using:  
 
     steam://nav/console (in a browser)  
-    download_depot 2121980 2121981 5296775019770307860 (enter in the Steam console)  
+    download_depot 2121980 2121981 6229122826867526209 (enter in the Steam console)  
     
 
--Place game .png, .dat, .csv, and .win files in the "gamedata" folder. <br />
+-Place game .png, .dat, .csv, and .win files in the "assets" folder. <br />
 
--On first run, the game will take a couple of minutes to load. It is running through patching the data.win file via xdelta, zipping audio files and other files into the .apk, and parsing the .csv data file. Subsequent starts should go faster. <br />
+-On first run, the game will take up to 30 minutes to load. It is running through patching the data.win file via xdelta, compressing and zipping audio files and other files into the .apk, and parsing the .csv data file. Subsequent starts should go much faster. <br />
 
 ## *Controls*
 
@@ -53,7 +53,7 @@ The "X" and "L1" buttons will enter multiple actions if held down, mainly for sk
 
 -(Workaround added) Late game key event not saving properly. (Fixed by AbbyV) <br />
 
--(Workaround added) Enemies always spawning in default orientation. (Fixed by Fayti1703 and skirlez) <br />
+-(Workaround added) Enemies always spawning in default orientation. (Fixed by Fayti1703, gooeyPhantasm, and skirlez) <br />
 
 -(Workaround added) Problems saving data after certain key events (initially seen with rest area 1). <br />
 
@@ -64,8 +64,6 @@ The "X" and "L1" buttons will enter multiple actions if held down, mainly for sk
 -(Workaround added) Settings file not saving after an option is changed. <br />
 
 -(Lowered) Long start-up time on boot (1.5min even without unpacking/repacking assets). <br />
-
--(Workaround Added) Font overlap during jrpg battle scene. <br />
 
 ## *Patch Notes*
 
@@ -97,13 +95,11 @@ The "X" and "L1" buttons will enter multiple actions if held down, mainly for sk
 
 -Investigate audio looping issues. <br />
 
--Compress audio data to lower ram usage. <br />
-
 ## *Credits*
 
 -Void Stranger by System Erasure.  <br />
 
--Testing by Discord User @gooeyPhantasm. <br />
+-Testing and update maintenance by [gPhantasm](https://github.com/gPhantasm). <br />
 
 -gmloader by JohnnyOnFlame. <br />
 
@@ -130,4 +126,4 @@ The "X" and "L1" buttons will enter multiple actions if held down, mainly for sk
 
 [gmloader-next](https://github.com/JohnnyonFlame/gmloader-next/blob/master/LICENSE.md) <br />
 
-[UTMT-CE](https://github.com/XDOneDude/UndertaleModToolCE/blob/master/LICENSE.txt) <br />
+[UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool/blob/master/LICENSE.txt) <br />
